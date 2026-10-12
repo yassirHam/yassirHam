@@ -14,7 +14,7 @@
 
 ### <img src="assets/fluent/wave.png" width="30" align="center" /> Yōkoso, I'm Yassir
 
-22, from Morocco, doing my engineering degree in AI at ENSA Al Hoceima (graduating 2027, inchallah).
+22, from Morocco, doing my engineering degree in AI at ENSA Al Hoceima (graduating 2027).
 
 Most of my time goes into making LLMs actually useful: fine-tuning them, plugging them into real documents, and teaching them to say "I don't know" instead of making stuff up. When I get tired of GPUs, I go bother an ESP32.
 
