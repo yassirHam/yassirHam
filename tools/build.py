@@ -1,4 +1,4 @@
-﻿"""Generates the 3D SVG artwork used in the profile README.
+"""Generates the 3D SVG artwork used in the profile README.
 
 Run from the repo root:  python tools/build.py
 Everything is plain SVG + SMIL/CSS animation, so it renders inside GitHub's <img> sandbox.
@@ -203,10 +203,10 @@ def hero():
   <text x="60" y="92" font-family="{MONO}" font-size="16" fill="{TEAL}" letter-spacing="3">&gt; hello_world.py</text>
   {extruded_text("YASSIR", 56, 168, 78, depth=10)}
   {extruded_text("HAMRI", 56, 248, 78, depth=10)}
-  <text x="60" y="284" font-family="{FONT}" font-size="17" fill="#e2e8f0" font-weight="600">Data &amp; AI Engineering Â· LLMs Â· RAG Â· MLOps Â· IoT</text>
+  <text x="60" y="284" font-family="{FONT}" font-size="17" fill="#e2e8f0" font-weight="600">Data &amp; AI Engineering · LLMs · RAG · MLOps · IoT</text>
 </g>
-<text x="60" y="400" font-family="{MONO}" font-size="13" fill="#94a3b8">ENSA Al Hoceima Â· class of 2027 Â· Morocco<tspan fill="{PINK}">
-  <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/> â–ˆ</tspan></text>
+<text x="60" y="400" font-family="{MONO}" font-size="13" fill="#94a3b8">ENSA Al Hoceima · class of 2027 · Morocco<tspan fill="{PINK}">
+  <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/> █</tspan></text>
 </g>
 <rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="22" fill="none" stroke="{VIOLET}" stroke-opacity=".5" stroke-width="2"/>
 </svg>"""
@@ -237,9 +237,9 @@ def icon_uri(key):
 
 STACK = [
     ("LANGUAGES", [("py", "Python"), ("java", "Java"), ("c", "C"), ("cpp", "C++"), ("js", "JavaScript"), ("ts", "TypeScript")]),
-    ("AI Â· DATA", [("pytorch", "PyTorch"), ("sklearn", "scikit-learn"), ("postgres", "PostgreSQL"), ("mysql", "MySQL"), ("selenium", "Selenium")]),
+    ("AI · DATA", [("pytorch", "PyTorch"), ("sklearn", "scikit-learn"), ("postgres", "PostgreSQL"), ("mysql", "MySQL"), ("selenium", "Selenium")]),
     ("BACKEND", [("fastapi", "FastAPI"), ("spring", "Spring Boot"), ("rabbitmq", "RabbitMQ"), ("git", "Git"), ("linux", "Linux")]),
-    ("CLOUD Â· OPS", [("docker", "Docker"), ("kubernetes", "Kubernetes"), ("terraform", "Terraform"), ("githubactions", "Actions"), ("aws", "AWS"), ("azure", "Azure")]),
+    ("CLOUD · OPS", [("docker", "Docker"), ("kubernetes", "Kubernetes"), ("terraform", "Terraform"), ("githubactions", "Actions"), ("aws", "AWS"), ("azure", "Azure")]),
 ]
 ROW_COLORS = [(CYAN, "#0e7490"), (VIOLET, "#4c1d95"), (TEAL, "#115e59"), (PINK, "#9d174d")]
 
@@ -303,22 +303,22 @@ def stack():
 
 # ---------------------------------------------------------------- project cards
 PROJECTS = [
-    ("dhakira", "ðŸ›ï¸", "Dhakira", "UM6P internship Â· 2026",
+    ("dhakira", "🏛️", "Dhakira", "UM6P internship · 2026",
      ["Company knowledge base that answers with", "citations, and says no when the docs don't."],
      ["FastAPI", "Spring Boot", "pgvector", "RabbitMQ"], CYAN),
-    ("medical", "ðŸ©º", "Medical Chatbot", "Qwen2.5-7B Â· 4-bit QLoRA",
+    ("medical", "🩺", "Medical Chatbot", "Qwen2.5-7B · 4-bit QLoRA",
      ["125k+ dialogues, FAISS-grounded answers,", "under 500 ms on a very tired GPU."],
      ["PyTorch", "QLoRA", "FAISS", "Docker"], PINK),
-    ("jobs", "ðŸ’¼", "Job Intelligent", "scrape â†’ clean â†’ match",
+    ("jobs", "💼", "Job Intelligent", "scrape → clean → match",
      ["Scrapes job portals, dedupes everything and", "matches candidates with embeddings."],
      ["Selenium", "PostgreSQL", "Power BI"], VIOLET),
-    ("iot", "ðŸ“¡", "IoT Motion Sensor", "ESP32 â†’ MQTT â†’ Azure",
+    ("iot", "📡", "IoT Motion Sensor", "ESP32 → MQTT → Azure",
      ["A tiny board spots motion and pings the", "cloud. Live dashboard included."],
      ["C++", "ESP32", "MQTT", "Azure"], TEAL),
-    ("pfe", "ðŸŽ“", "gestion-PFE", "Java EE scheduler",
+    ("pfe", "🎓", "gestion-PFE", "Java EE scheduler",
      ["Assigns projects, juries and defense slots.", "About 70% less admin back-and-forth."],
      ["Java EE", "MySQL", "LangChain4j"], "#fbbf24"),
-    ("spam", "ðŸ›¡ï¸", "Phishing Detector", "Random Forest + SVM",
+    ("spam", "🛡️", "Phishing Detector", "Random Forest + SVM",
      ["Sniffs out spam and phishing emails with", "97%+ accuracy on held-out data."],
      ["scikit-learn", "FastAPI", "Docker"], "#34d399"),
 ]
@@ -399,13 +399,87 @@ def footer():
     write("footer.svg", svg)
 
 
+# ---------------------------------------------------------------- 3D contribution city
+CONTRIB_QUERY = """query($login:String!){user(login:$login){contributionsCollection{contributionCalendar{
+totalContributions weeks{contributionDays{contributionCount weekday}}}}}}"""
+
+
+def fetch_contrib(login="yassirHam"):
+    """Pull the last year of contributions through the gh CLI (no token handling here)."""
+    import json
+    import subprocess
+    out = subprocess.run(["gh", "api", "graphql", "-f", f"query={CONTRIB_QUERY}", "-f", f"login={login}"],
+                         capture_output=True, text=True, check=True).stdout
+    cal = json.loads(out)["data"]["user"]["contributionsCollection"]["contributionCalendar"]
+    return cal["totalContributions"], [[(d["weekday"], d["contributionCount"]) for d in w["contributionDays"]] for w in cal["weeks"]]
+
+
+def contrib_city():
+    total, weeks = fetch_contrib()
+    peak = max((c for w in weeks for _, c in w), default=1) or 1
+    W, H = 1000, 560
+    a = 14                              # cell edge
+    cx30, s30 = a * 0.866, a * 0.5
+    ox, oy = 92, 150                      # screen position of week 0 / day 0
+    palette = ["#1e293b", "#0e7490", CYAN, "#a78bfa", PINK]
+
+    def level(c):
+        if c == 0:
+            return 0
+        r = c / peak
+        return 1 if r < .25 else 2 if r < .5 else 3 if r < .75 else 4
+
+    cells = [(wi, d, c) for wi, w in enumerate(weeks) for d, c in w]
+    cells.sort(key=lambda t: (t[0] + t[1], t[0]))   # painter's order: back to front
+    bars = []
+    for wi, d, c in cells:
+        # weeks run down-right, weekdays run down-left
+        x = ox + (wi - d) * cx30 + 7 * cx30
+        y = oy + (wi + d) * s30
+        h = 2 if c == 0 else 6 + 70 * (c / peak) ** .8
+        col = palette[level(c)]
+        top = f"{f(x)},{f(y - h)} {f(x + cx30)},{f(y - h + s30)} {f(x)},{f(y - h + 2 * s30)} {f(x - cx30)},{f(y - h + s30)}"
+        left = f"{f(x - cx30)},{f(y - h + s30)} {f(x)},{f(y - h + 2 * s30)} {f(x)},{f(y + 2 * s30)} {f(x - cx30)},{f(y + s30)}"
+        right = f"{f(x)},{f(y - h + 2 * s30)} {f(x + cx30)},{f(y - h + s30)} {f(x + cx30)},{f(y + s30)} {f(x)},{f(y + 2 * s30)}"
+        delay = (wi + d) * 0.025
+        bars.append(f'<g class="b" style="animation-delay:{delay:.2f}s">'
+                    f'<polygon points="{left}" fill="{col}" fill-opacity=".55"/>'
+                    f'<polygon points="{right}" fill="{col}" fill-opacity=".8"/>'
+                    f'<polygon points="{top}" fill="{col}" stroke="#fff" stroke-opacity="{.35 if c else .06}" stroke-width=".5"/></g>')
+    active = sum(1 for w in weeks for _, c in w if c)
+    best = max(((c, wi) for wi, w in enumerate(weeks) for _, c in w), default=(0, 0))[0]
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="3D contribution graph: {total} contributions in the last year">
+<defs>{COMMON_DEFS}
+<radialGradient id="bgC" cx=".55" cy=".6" r=".7"><stop offset="0" stop-color="#171040"/><stop offset="1" stop-color="{BG}"/></radialGradient>
+</defs>
+<style>
+  .b {{ transform-box: fill-box; transform-origin: 50% 100%; animation: rise 1.2s cubic-bezier(.2,.9,.3,1.2) both; }}
+  @keyframes rise {{ from {{ transform: scaleY(0); opacity: 0 }} to {{ transform: scaleY(1); opacity: 1 }} }}
+</style>
+<rect width="{W}" height="{H}" rx="22" fill="url(#bgC)"/>
+<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="22" fill="none" stroke="{VIOLET}" stroke-opacity=".4" stroke-width="2"/>
+{stars(W, H, 40, 120)}
+{"".join(bars)}
+<g font-family="{FONT}">
+  <text x="40" y="60" font-size="44" font-weight="900" fill="url(#gTxt)">{total}</text>
+  <text x="42" y="84" font-size="13" fill="#94a3b8" letter-spacing="2">CONTRIBUTIONS · LAST 12 MONTHS</text>
+  <text x="{W - 40}" y="60" text-anchor="end" font-size="30" font-weight="900" fill="{CYAN}">{active}</text>
+  <text x="{W - 40}" y="80" text-anchor="end" font-size="12" fill="#94a3b8" letter-spacing="2">ACTIVE DAYS</text>
+  <text x="{W - 40}" y="118" text-anchor="end" font-size="30" font-weight="900" fill="{PINK}">{best}</text>
+  <text x="{W - 40}" y="138" text-anchor="end" font-size="12" fill="#94a3b8" letter-spacing="2">BEST DAY</text>
+</g>
+</svg>"""
+    write("contrib-city.svg", svg)
+
+
 if __name__ == "__main__":
+    contrib_city()
     hero()
-    header("h-about.svg", "WHO AM I", "ðŸ‘¾")
-    header("h-stack.svg", "TOOLBOX", "ðŸ§°")
-    header("h-projects.svg", "THINGS I BUILT", "ðŸš€")
-    header("h-cooking.svg", "CURRENTLY COOKING", "ðŸ”¥")
-    header("h-contrib.svg", "COMMIT CITY", "ðŸ™ï¸")
+    header("h-about.svg", "WHO AM I", "👾")
+    header("h-stack.svg", "TOOLBOX", "🧰")
+    header("h-projects.svg", "THINGS I BUILT", "🚀")
+    header("h-cooking.svg", "CURRENTLY COOKING", "🔥")
+    header("h-contrib.svg", "COMMIT CITY", "🏙️")
     stack()
     for p in PROJECTS:
         card(*p)

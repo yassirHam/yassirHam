@@ -73,7 +73,7 @@
     <polygon points="865,48 903.1,70 865,92 826.9,70" fill="url(#shine)"/>
   </g>
   <text x="865" y="172" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">TypeScript</text>
-</g><text x="24" y="264" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="900" letter-spacing="3" fill="#8b5cf6">AI Â· DATA</text><line x1="24" x2="150" y1="276" y2="276" stroke="#8b5cf6" stroke-opacity=".5"/><g class="cube" style="animation-delay:0.35s">
+</g><text x="24" y="264" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="900" letter-spacing="3" fill="#8b5cf6">AI · DATA</text><line x1="24" x2="150" y1="276" y2="276" stroke="#8b5cf6" stroke-opacity=".5"/><g class="cube" style="animation-delay:0.35s">
   <ellipse cx="225" cy="300" rx="34.3" ry="7" fill="#8b5cf6" opacity=".25" class="shadow" style="animation-delay:0.35s"/>
   <g class="lift" style="animation-delay:0.35s">
     <polygon points="186.9,220 225,242 225,286 186.9,264" fill="#1e293b" stroke="#8b5cf6" stroke-opacity=".6"/>
@@ -173,7 +173,7 @@
     <polygon points="737,348 775.1,370 737,392 698.9,370" fill="url(#shine)"/>
   </g>
   <text x="737" y="472" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">Linux</text>
-</g><text x="24" y="564" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="900" letter-spacing="3" fill="#f472b6">CLOUD Â· OPS</text><line x1="24" x2="150" y1="576" y2="576" stroke="#f472b6" stroke-opacity=".5"/><g class="cube" style="animation-delay:1.05s">
+</g><text x="24" y="564" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="900" letter-spacing="3" fill="#f472b6">CLOUD · OPS</text><line x1="24" x2="150" y1="576" y2="576" stroke="#f472b6" stroke-opacity=".5"/><g class="cube" style="animation-delay:1.05s">
   <ellipse cx="225" cy="600" rx="34.3" ry="7" fill="#f472b6" opacity=".25" class="shadow" style="animation-delay:1.05s"/>
   <g class="lift" style="animation-delay:1.05s">
     <polygon points="186.9,520 225,542 225,586 186.9,564" fill="#1e293b" stroke="#f472b6" stroke-opacity=".6"/>

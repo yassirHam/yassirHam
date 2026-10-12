@@ -48,7 +48,7 @@ I'm Yassir, 22, an engineering student at **ENSA Al Hoceima** in the *Digital Tr
 <img src="assets/h-contrib.svg" width="100%" alt="Commit city" />
 
 <div align="center">
-  <img src="profile-3d-contrib/profile-night-rainbow.svg" width="100%" alt="3D contribution graph" />
+  <img src="assets/contrib-city.svg" width="100%" alt="3D contribution graph" />
 </div>
 
 <div align="center">

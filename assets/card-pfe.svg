@@ -22,7 +22,7 @@
     </rect>
   </g>
   <g transform="matrix(1 -0.0333 0 1 22 36)">
-    <text x="30" y="48" font-size="30">ðŸŽ“</text>
+    <text x="30" y="48" font-size="30">🎓</text>
     <text x="76" y="40" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="900" fill="#f8fafc">gestion-PFE</text>
     <text x="76" y="58" font-family="'Cascadia Code', Consolas, 'Courier New', monospace" font-size="12" fill="#fbbf24">Java EE scheduler</text>
     <text font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#cbd5e1"><tspan x="30" y="90">Assigns projects, juries and defense slots.</tspan><tspan x="30" y="110">About 70% less admin back-and-forth.</tspan></text>
