@@ -220,7 +220,7 @@ def header(name, text, emoji):
 <defs>{COMMON_DEFS}
 <linearGradient id="bar" x1="0" x2="1"><stop offset="0" stop-color="{CYAN}"/><stop offset=".5" stop-color="{VIOLET}"/><stop offset="1" stop-color="{PINK}" stop-opacity="0"/></linearGradient>
 </defs>
-<text x="8" y="60" font-size="40">{emoji}</text>
+<image href="{fluent(emoji)}" x="4" y="14" width="56" height="56"/>
 {extruded_text(text, 70, 60, 42, depth=6, spacing=4)}
 <rect x="72" y="74" width="600" height="3" rx="1.5" fill="url(#bar)">
   <animate attributeName="width" values="120;600;120" dur="6s" repeatCount="indefinite"/>
@@ -230,6 +230,12 @@ def header(name, text, emoji):
 
 
 # ---------------------------------------------------------------- isometric tech stack
+def fluent(key):
+    """Microsoft Fluent 3D emoji (MIT), embedded so GitHub's image proxy can't break them."""
+    data = (ASSETS / "fluent" / f"{key}.png").read_bytes()
+    return "data:image/png;base64," + base64.b64encode(data).decode()
+
+
 def icon_uri(key):
     data = (ICONS / f"{key}.svg").read_bytes()
     return "data:image/svg+xml;base64," + base64.b64encode(data).decode()
@@ -303,23 +309,23 @@ def stack():
 
 # ---------------------------------------------------------------- project cards
 PROJECTS = [
-    ("dhakira", "🏛️", "Dhakira", "UM6P internship · 2026",
-     ["Company knowledge base that answers with", "citations, and says no when the docs don't."],
+    ("dhakira", "books", "Dhakira", "built at UM6P · summer 2026",
+     ["Ask it anything about your company docs.", "It answers with sources. No sources, no answer."],
      ["FastAPI", "Spring Boot", "pgvector", "RabbitMQ"], CYAN),
-    ("medical", "🩺", "Medical Chatbot", "Qwen2.5-7B · 4-bit QLoRA",
-     ["125k+ dialogues, FAISS-grounded answers,", "under 500 ms on a very tired GPU."],
+    ("medical", "stethoscope", "Medical Chatbot", "Qwen2.5-7B · 4-bit QLoRA",
+     ["I fine-tuned a 7B model on 125k medical chats.", "My GPU still hasn't forgiven me."],
      ["PyTorch", "QLoRA", "FAISS", "Docker"], PINK),
-    ("jobs", "💼", "Job Intelligent", "scrape → clean → match",
-     ["Scrapes job portals, dedupes everything and", "matches candidates with embeddings."],
+    ("jobs", "briefcase", "Job Intelligent", "scrape → clean → match",
+     ["I scraped job boards so I'd never have to", "scroll them again. Now it matches people too."],
      ["Selenium", "PostgreSQL", "Power BI"], VIOLET),
-    ("iot", "📡", "IoT Motion Sensor", "ESP32 → MQTT → Azure",
-     ["A tiny board spots motion and pings the", "cloud. Live dashboard included."],
+    ("iot", "antenna", "IoT Motion Sensor", "ESP32 → MQTT → Azure",
+     ["A tiny ESP32 that snitches to Azure every", "time something moves. Live demo inside."],
      ["C++", "ESP32", "MQTT", "Azure"], TEAL),
-    ("pfe", "🎓", "gestion-PFE", "Java EE scheduler",
-     ["Assigns projects, juries and defense slots.", "About 70% less admin back-and-forth."],
+    ("pfe", "gradcap", "gestion-PFE", "Java EE scheduler",
+     ["Final-year project scheduling at my school", "was pure chaos. Now an app sorts it out."],
      ["Java EE", "MySQL", "LangChain4j"], "#fbbf24"),
-    ("spam", "🛡️", "Phishing Detector", "Random Forest + SVM",
-     ["Sniffs out spam and phishing emails with", "97%+ accuracy on held-out data."],
+    ("spam", "fishing", "Phishing Detector", "Random Forest + SVM",
+     ["Catches 97% of spam and phishing emails.", "The other 3% are probably from my bank."],
      ["scikit-learn", "FastAPI", "Docker"], "#34d399"),
 ]
 
@@ -364,7 +370,7 @@ def card(key, emoji, title, sub, lines, tags, color):
     </rect>
   </g>
   <g transform="{skew}">
-    <text x="{tx}" y="48" font-size="30">{emoji}</text>
+    <image href="{fluent(emoji)}" x="{tx - 4}" y="14" width="46" height="46"/>
     <text x="{tx + 46}" y="40" font-family="{FONT}" font-size="22" font-weight="900" fill="#f8fafc">{title}</text>
     <text x="{tx + 46}" y="58" font-family="{MONO}" font-size="12" fill="{color}">{sub}</text>
     <text font-family="{FONT}" font-size="14" fill="#cbd5e1"><tspan x="{tx}" y="90">{lines[0]}</tspan><tspan x="{tx}" y="110">{lines[1]}</tspan></text>
@@ -475,11 +481,11 @@ def contrib_city():
 if __name__ == "__main__":
     contrib_city()
     hero()
-    header("h-about.svg", "WHO AM I", "👾")
-    header("h-stack.svg", "TOOLBOX", "🧰")
-    header("h-projects.svg", "THINGS I BUILT", "🚀")
-    header("h-cooking.svg", "CURRENTLY COOKING", "🔥")
-    header("h-contrib.svg", "COMMIT CITY", "🏙️")
+    header("h-about.svg", "WHO AM I", "technologist")
+    header("h-stack.svg", "MY TOOLBOX", "toolbox")
+    header("h-projects.svg", "STUFF I SHIPPED", "hammer")
+    header("h-cooking.svg", "CURRENTLY COOKING", "cooking")
+    header("h-contrib.svg", "COMMIT CITY", "city")
     stack()
     for p in PROJECTS:
         card(*p)

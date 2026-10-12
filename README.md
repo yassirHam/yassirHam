@@ -2,7 +2,7 @@
 
 <img src="assets/hero.svg" width="100%" alt="Yassir Hamri - Data and AI engineering" />
 
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3000&pause=900&color=22D3EE&center=true&vCenter=true&width=640&lines=I+fine-tune+LLMs+on+a+GPU+that+begs+for+mercy;I+build+RAG+that+says+%22I+don't+know%22+when+it+should;I+make+ESP32+boards+blink+at+the+cloud;The+globe+above+is+pure+SVG+math.+No+GIFs." alt="typing intro" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3000&pause=900&color=22D3EE&center=true&vCenter=true&width=640&lines=currently+arguing+with+a+GPU;building+RAG+that+admits+when+it+doesn't+know;part-time+ESP32+whisperer;yes%2C+that+globe+is+pure+SVG+math" alt="typing intro" /></a>
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-visit-22d3ee?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0b1023)](https://yassir-hamri-portfolio.vercel.app)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-connect-8b5cf6?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0b1023)](https://linkedin.com/in/yassir-hamri)
@@ -12,20 +12,25 @@
 
 <img src="assets/h-about.svg" width="100%" alt="Who am I" />
 
-I'm Yassir, 22, an engineering student at **ENSA Al Hoceima** in the *Digital Transformation & AI* track (class of 2027). I live somewhere between **LLMs, data pipelines and tiny microcontrollers**, and my favourite projects are the ones where all three show up at once.
+### <img src="assets/fluent/wave.png" width="30" align="center" /> Salam, I'm Yassir
 
-- 🧠 I like AI that **shows its sources**, and that **refuses to answer** when it has none
-- 🔧 I like backends that are boring in the best way: queued, containerised, tested
-- 📡 I like hardware, because nothing humbles you like a sensor that lies
-- 🗣️ Arabic · French · English · a little 中文 and Deutsch on the side
+22, from Morocco, doing my engineering degree in AI at ENSA Al Hoceima (graduating 2027, inchallah).
 
-<img src="assets/h-stack.svg" width="100%" alt="Toolbox" />
+Most of my time goes into making LLMs actually useful: fine-tuning them, plugging them into real documents, and teaching them to say "I don't know" instead of making stuff up. When I get tired of GPUs, I go bother an ESP32.
+
+<img src="assets/fluent/brain.png" width="22" align="center" />&nbsp; My RAG pipelines cite their sources. My school essays never did.<br/>
+<img src="assets/fluent/whale.png" width="22" align="center" />&nbsp; I've lost more nights to Docker networking than I'd like to admit.<br/>
+<img src="assets/fluent/bug.png" width="22" align="center" />&nbsp; Fastest way to get my attention: send me a weird dataset or a cursed bug.<br/>
+<img src="assets/fluent/tongue.png" width="22" align="center" />&nbsp; I speak Arabic, French and English, and I'm slowly losing a fight with Chinese and German.<br/>
+<img src="assets/fluent/tea.png" width="22" align="center" />&nbsp; Powered by Moroccan mint tea. Yes, too much sugar.
+
+<img src="assets/h-stack.svg" width="100%" alt="My toolbox" />
 
 <div align="center">
   <img src="assets/stack.svg" width="100%" alt="Tech stack as floating isometric cubes" />
 </div>
 
-<img src="assets/h-projects.svg" width="100%" alt="Things I built" />
+<img src="assets/h-projects.svg" width="100%" alt="Stuff I shipped" />
 
 <div align="center">
 <a href="https://github.com/yassirHam/UM6P_DHAKIRA"><img src="assets/card-dhakira.svg" width="49%" alt="Dhakira" /></a>
@@ -38,12 +43,11 @@ I'm Yassir, 22, an engineering student at **ENSA Al Hoceima** in the *Digital Tr
 
 <img src="assets/h-cooking.svg" width="100%" alt="Currently cooking" />
 
-| | Project | What's going on |
-|:-:|---|---|
-| 🛰️ | **ORION** | A multimodal research platform. Vision Transformers, time-series and knowledge graphs, so one model can reason about industrial sensors *and* images with Graph RAG and LangGraph agents |
-| ⚓ | **Sentinel** | Policy-driven MLOps on AWS/EKS. Terraform, Argo CD and MLflow handle deploys, drift detection and rollbacks without drama |
+<img src="assets/fluent/satellite.png" width="26" align="center" />&nbsp; **ORION** is my research playground. Vision models, time series and knowledge graphs, glued together with LangGraph agents so they can reason about factory sensors and images at the same time. Very much a work in progress.
 
-**Receipts:** 🎖️ Global UGRAD semi-finalist (2023–24) · ☁️ Oracle OCI AI Foundations Associate · ☸️ IBM Istio & Kubernetes (×2) · 🤖 an n8n + Canva pipeline that cut manual content work by 90%
+<img src="assets/fluent/robot.png" width="26" align="center" />&nbsp; **Sentinel** is MLOps on AWS/EKS that deploys models, watches them for drift and rolls back on its own. The goal is simple: I want to sleep.
+
+<img src="assets/fluent/trophy.png" width="26" align="center" />&nbsp; **Some proof I don't just talk:** Global UGRAD semi-finalist (2023–24), Oracle OCI AI Foundations certified, two IBM courses on Istio & Kubernetes, and an n8n + Canva pipeline that cut 90% of the manual work at my last internship.
 
 <img src="assets/h-contrib.svg" width="100%" alt="Commit city" />
 
@@ -54,7 +58,8 @@ I'm Yassir, 22, an engineering student at **ENSA Al Hoceima** in the *Digital Tr
 <div align="center">
 <br/>
 
-**Got an idea, an internship, or a cursed bug?** Say hi on [LinkedIn](https://linkedin.com/in/yassir-hamri) 👋
+<img src="assets/fluent/speech.png" width="26" align="center" />&nbsp; **Want to build something together, offer me an internship, or just show me a cursed bug?**<br/>
+My [LinkedIn](https://linkedin.com/in/yassir-hamri) DMs are open.
 
 <img src="assets/footer.svg" width="100%" alt="Thanks for scrolling" />
 </div>
