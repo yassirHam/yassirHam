@@ -12,7 +12,7 @@
 
 <img src="assets/h-about.svg" width="100%" alt="Who am I" />
 
-### <img src="assets/fluent/wave.png" width="30" align="center" /> Salam, I'm Yassir
+### <img src="assets/fluent/wave.png" width="30" align="center" /> Yōkoso, I'm Yassir
 
 22, from Morocco, doing my engineering degree in AI at ENSA Al Hoceima (graduating 2027, inchallah).
 
