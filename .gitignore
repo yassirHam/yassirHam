@@ -1,0 +1,8 @@
+# Python cache from tools/build.py
+__pycache__/
+*.pyc
+
+# Local render previews
+_*.html
+_*.png
+_*.svg
