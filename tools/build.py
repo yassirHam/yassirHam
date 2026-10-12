@@ -1,4 +1,4 @@
-"""Generates the 3D SVG artwork used in the profile README.
+﻿"""Generates the 3D SVG artwork used in the profile README.
 
 Run from the repo root:  python tools/build.py
 Everything is plain SVG + SMIL/CSS animation with fonts embedded as data URIs,
@@ -592,7 +592,7 @@ if __name__ == "__main__":
     hero()
     about()
     header("h-about.svg", "WHO AM I", "technologist")
-    header("h-stack.svg", "MY ZANPAKUTO", "toolbox")
+    header("h-stack.svg", "MY STACK", "toolbox")
     header("h-projects.svg", "STUFF I SHIPPED", "hammer")
     header("h-cooking.svg", "THE MASTER PLAN", "cooking")
     header("h-contrib.svg", "COMMIT CITY", "city")

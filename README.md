@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
 
 <img src="assets/hero.svg" width="100%" alt="Yassir Hamri - Data and AI engineering" />
 
@@ -15,7 +15,7 @@
 
 <br/><br/>
 
-<img src="assets/h-stack.svg" width="100%" alt="My Zanpakuto" />
+<img src="assets/h-stack.svg" width="100%" alt="My stack" />
 <img src="assets/stack.svg" width="100%" alt="Tech stack as floating isometric cubes" />
 
 <br/><br/>
