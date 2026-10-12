@@ -1,4 +1,4 @@
-﻿"""Generates the 3D SVG artwork used in the profile README.
+"""Generates the 3D SVG artwork used in the profile README.
 
 Run from the repo root:  python tools/build.py
 Everything is plain SVG + SMIL/CSS animation with fonts embedded as data URIs,
@@ -24,13 +24,13 @@ ICONS = ASSETS / "icons"
 FLUENT = ASSETS / "fluent"
 FONT_DIR = Path(__file__).resolve().parent / "fonts"
 
-BG = "#060816"
-CYAN = "#22d3ee"
-TEAL = "#2dd4bf"
-VIOLET = "#8b5cf6"
-PINK = "#f472b6"
-INK = "#e2e8f0"
-MUTED = "#94a3b8"
+BG = "#080706"
+CYAN = "#f5cd8a"
+TEAL = "#d5b383"
+VIOLET = "#c99a5b"
+PINK = "#70d69e"
+INK = "#f4efe4"
+MUTED = "#c9bda9"
 
 DISPLAY = "'Orb', 'Segoe UI', Arial, sans-serif"      # Orbitron: ASCII only!
 FONT = "'SG', 'Segoe UI', Arial, sans-serif"          # Space Grotesk
@@ -98,11 +98,11 @@ def wrap(text, px, size):
     return textwrap.wrap(text, max(10, int(px / (size * 0.53))))
 
 
-def extruded_text(text, x, y, size, depth=9, anchor="start", grad="gTxt", side="#3b1d6e", spacing=2):
+def extruded_text(text, x, y, size, depth=9, anchor="start", grad="gTxt", side="#5a3e1e", spacing=2):
     """Fake 3D extrusion: stacked copies offset down-right, then a bright face on top."""
     common = (f'x="{x}" font-family="{DISPLAY}" font-size="{size}" font-weight="900" '
               f'letter-spacing="{spacing}" text-anchor="{anchor}"')
-    layers = [f'<text {common} y="{y}" dx="{i}" dy="{i}" fill="{side if i > 1 else "#1e0b3d"}">{esc(text)}</text>'
+    layers = [f'<text {common} y="{y}" dx="{i}" dy="{i}" fill="{side if i > 1 else "#2a1c0e"}">{esc(text)}</text>'
               for i in range(depth, 0, -1)]
     layers.append(f'<text {common} y="{y}" fill="url(#{grad})" stroke="#fff" stroke-opacity=".25" stroke-width="1">{esc(text)}</text>')
     return "\n".join(layers)
@@ -114,11 +114,11 @@ COMMON_DEFS = f"""
 </filter>
 <filter id="bigGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
 <linearGradient id="gTxt" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="{CYAN}"/><stop offset=".5" stop-color="#a78bfa"/><stop offset="1" stop-color="{PINK}"/>
+  <stop offset="0" stop-color="{CYAN}"/><stop offset=".5" stop-color="#eadfc9"/><stop offset="1" stop-color="{PINK}"/>
   <animate attributeName="x1" values="0;-1;0" dur="8s" repeatCount="indefinite"/>
   <animate attributeName="x2" values="1;2;1" dur="8s" repeatCount="indefinite"/>
 </linearGradient>
-<radialGradient id="panelBg" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#140f35"/><stop offset="1" stop-color="{BG}"/></radialGradient>"""
+<radialGradient id="panelBg" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#14110c"/><stop offset="1" stop-color="{BG}"/></radialGradient>"""
 
 
 def panel(W, H):
@@ -189,7 +189,7 @@ def stars(w, n, max_y):
     for _ in range(n):
         x, y = random.uniform(0, w), random.uniform(0, max_y)
         d = random.uniform(2, 6)
-        out.append(f'<circle cx="{f(x)}" cy="{f(y)}" r="{random.choice([0.5, 0.7, 0.9, 1.2])}" fill="#fff">'
+        out.append(f'<circle cx="{f(x)}" cy="{f(y)}" r="{random.choice([0.5, 0.7, 0.9, 1.2])}" fill="#fff6e6">'
                    f'<animate attributeName="opacity" values=".1;.9;.1" dur="{f(d)}s" begin="{f(random.uniform(0, d))}s" repeatCount="indefinite"/></circle>')
     return "\n".join(out)
 
@@ -224,7 +224,7 @@ def hero():
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Yassir Hamri, Data and AI engineering student">
 <defs>{COMMON_DEFS}
 <radialGradient id="sky" cx=".72" cy=".42" r=".75">
-  <stop offset="0" stop-color="#1b1145"/><stop offset=".55" stop-color="#0b0d2a"/><stop offset="1" stop-color="{BG}"/>
+  <stop offset="0" stop-color="#1d1913"/><stop offset=".55" stop-color="#110e0a"/><stop offset="1" stop-color="{BG}"/>
 </radialGradient>
 <linearGradient id="gGlobe" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{CYAN}"/><stop offset="1" stop-color="{VIOLET}"/></linearGradient>
 {floor_defs(W, H, horizon)}
@@ -233,7 +233,7 @@ def hero():
 <rect width="{W}" height="{H}" fill="url(#sky)"/>
 {stars(W, 90, horizon - 10)}
 <circle cx="{gx}" cy="{gy}" r="120" fill="{VIOLET}" opacity=".35" filter="url(#bigGlow)"/>
-<rect y="{horizon}" width="{W}" height="{H - horizon}" fill="#0a0620"/>
+<rect y="{horizon}" width="{W}" height="{H - horizon}" fill="#0a0805"/>
 {synth_floor(W, horizon, H, gx)}
 <line x1="0" x2="{W}" y1="{horizon}" y2="{horizon}" stroke="{PINK}" stroke-width="2" filter="url(#glow)"/>
 <g transform="translate({gx} {gy}) rotate(-14)">
@@ -328,7 +328,7 @@ STACK = [
     ("BACKEND", [("fastapi", "FastAPI"), ("spring", "Spring Boot"), ("rabbitmq", "RabbitMQ"), ("git", "Git"), ("linux", "Linux")]),
     ("CLOUD + OPS", [("docker", "Docker"), ("kubernetes", "Kubernetes"), ("terraform", "Terraform"), ("githubactions", "Actions"), ("aws", "AWS"), ("azure", "Azure")]),
 ]
-ROW_COLORS = [(CYAN, "#0e7490"), (VIOLET, "#4c1d95"), (TEAL, "#115e59"), (PINK, "#9d174d")]
+ROW_COLORS = [(CYAN, "#6e4f27"), (VIOLET, "#5c4123"), (TEAL, "#6b5536"), (PINK, "#2f7a52")]
 
 
 def cube(cx, ty, a, key, label, top, side, delay):
@@ -345,7 +345,7 @@ def cube(cx, ty, a, key, label, top, side, delay):
     return f"""<g>
   <ellipse cx="{f(cx)}" cy="{f(ty + a + h + 14)}" rx="{f(w * .45)}" ry="7" fill="{top}" opacity=".25" class="shadow" style="{d}"/>
   <g class="lift" style="{d}">
-    <polygon points="{left}" fill="#1e293b" stroke="{top}" stroke-opacity=".6"/>
+    <polygon points="{left}" fill="#2e2820" stroke="{top}" stroke-opacity=".6"/>
     <image href="{icon_uri(key)}" width="{f(ic)}" height="{f(ic)}" x="{f(off)}" y="{f(off)}" transform="{m}"/>
     <polygon points="{right}" fill="{side}" stroke="{top}" stroke-opacity=".6"/>
     <polygon points="{top_face}" fill="{top}" fill-opacity=".9" stroke="#fff" stroke-opacity=".5"/>
@@ -401,10 +401,10 @@ PROJECTS = [
      ["C++", "ESP32", "MQTT", "Azure"], TEAL),
     ("pfe", "gradcap", "gestion-PFE", "Java EE scheduler",
      "Final-year project scheduling at my school was pure chaos. Now an app runs it. All according to plan.",
-     ["Java EE", "MySQL", "LangChain4j"], "#fbbf24"),
+     ["Java EE", "MySQL", "LangChain4j"], "#eadfc9"),
     ("spam", "fishing", "Phish Catcher", "Random Forest + SVM",
      "Catches 97% of spam and phishing emails. The other 3% are probably from my bank.",
-     ["scikit-learn", "FastAPI", "Docker"], "#34d399"),
+     ["scikit-learn", "FastAPI", "Docker"], "#b78a52"),
 ]
 
 
@@ -429,7 +429,7 @@ def card(key, icon, title, sub, blurb, tags, color):
     body = "".join(f'<tspan x="{pad}" y="{92 + i * 20}">{esc(l)}</tspan>' for i, l in enumerate(lines))
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{esc(title)}: {esc(blurb)}">
 <defs>
-<linearGradient id="face" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e1b4b"/><stop offset="1" stop-color="#0b1023"/></linearGradient>
+<linearGradient id="face" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d1913"/><stop offset="1" stop-color="#100d09"/></linearGradient>
 <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
   <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".12"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
 </linearGradient>
@@ -452,9 +452,9 @@ def card(key, icon, title, sub, blurb, tags, color):
   </g>
   <g transform="{skew}">
     <image href="{fluent(icon)}" x="{pad - 2}" y="16" width="44" height="44"/>
-    <text x="{pad + 54}" y="38" font-family="{DISPLAY}" font-size="19" font-weight="900" letter-spacing="1" fill="#f8fafc">{esc(title)}</text>
+    <text x="{pad + 54}" y="38" font-family="{DISPLAY}" font-size="19" font-weight="900" letter-spacing="1" fill="#f4efe4">{esc(title)}</text>
     <text x="{pad + 54}" y="57" font-family="{MONO}" font-size="12" fill="{color}">{esc(sub)}</text>
-    <text font-family="{FONT}" font-size="14" fill="#cbd5e1">{body}</text>
+    <text font-family="{FONT}" font-size="14" fill="#c9bda9">{body}</text>
     {"".join(tag_svg)}
   </g>
 </g>
@@ -481,23 +481,23 @@ def plan():
     parts, card_h = [], 200
     for i, (icon, name, phase, color, text) in enumerate(PLAN):
         x = m + i * (cw + gap)
-        parts.append(f'<rect x="{f(x)}" y="{m}" width="{f(cw)}" height="{card_h}" rx="16" fill="#0b1023" stroke="{color}" stroke-opacity=".7" stroke-width="1.5"/>')
+        parts.append(f'<rect x="{f(x)}" y="{m}" width="{f(cw)}" height="{card_h}" rx="16" fill="#100d09" stroke="{color}" stroke-opacity=".7" stroke-width="1.5"/>')
         parts.append(f'<rect x="{f(x)}" y="{m}" width="5" height="{card_h}" rx="2.5" fill="{color}"/>')
         parts.append(f'<image href="{fluent(icon)}" x="{f(x + 24)}" y="{m + 22}" width="46" height="46"/>')
-        parts.append(f'<text x="{f(x + 84)}" y="{m + 47}" font-family="{DISPLAY}" font-size="22" font-weight="900" letter-spacing="2" fill="#f8fafc">{name}</text>')
+        parts.append(f'<text x="{f(x + 84)}" y="{m + 47}" font-family="{DISPLAY}" font-size="22" font-weight="900" letter-spacing="2" fill="#f4efe4">{name}</text>')
         parts.append(f'<text x="{f(x + 84)}" y="{m + 66}" font-family="{MONO}" font-size="12" fill="{color}">{esc(phase)}</text>')
         for j, line in enumerate(wrap(text, cw - 48, 15)[:4]):
-            parts.append(f'<text x="{f(x + 24)}" y="{m + 104 + j * 23}" font-family="{FONT}" font-size="15" fill="#cbd5e1">{esc(line)}</text>')
+            parts.append(f'<text x="{f(x + 24)}" y="{m + 104 + j * 23}" font-family="{FONT}" font-size="15" fill="#c9bda9">{esc(line)}</text>')
     ry = m + card_h + gap
     rh = 120
-    parts.append(f'<rect x="{m}" y="{ry}" width="{W - 2 * m}" height="{rh}" rx="16" fill="#0b1023" stroke="#fbbf24" stroke-opacity=".6" stroke-width="1.5"/>')
+    parts.append(f'<rect x="{m}" y="{ry}" width="{W - 2 * m}" height="{rh}" rx="16" fill="#100d09" stroke="#eadfc9" stroke-opacity=".6" stroke-width="1.5"/>')
     parts.append(f'<image href="{fluent("trophy")}" x="{m + 22}" y="{ry + 18}" width="40" height="40"/>')
-    parts.append(f'<text x="{m + 76}" y="{ry + 46}" font-family="{DISPLAY}" font-size="17" font-weight="900" letter-spacing="2" fill="#fbbf24">PROOF I DON\'T JUST TALK</text>')
+    parts.append(f'<text x="{m + 76}" y="{ry + 46}" font-family="{DISPLAY}" font-size="17" font-weight="900" letter-spacing="2" fill="#eadfc9">PROOF I DON\'T JUST TALK</text>')
     colw = (W - 2 * m - 48) / 2
     for k, item in enumerate(RECEIPTS):
         cx = m + 24 + (k % 2) * colw
         cy = ry + 82 + (k // 2) * 26
-        parts.append(f'<circle cx="{f(cx + 4)}" cy="{cy - 5}" r="4" fill="#fbbf24"/>'
+        parts.append(f'<circle cx="{f(cx + 4)}" cy="{cy - 5}" r="4" fill="#eadfc9"/>'
                      f'<text x="{f(cx + 18)}" y="{cy}" font-family="{FONT}" font-size="15" fill="{INK}">{esc(item)}</text>')
     H = ry + rh + m
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Current projects: ORION and Sentinel. {esc('. '.join(RECEIPTS))}">
@@ -518,7 +518,7 @@ def footer():
 <g clip-path="url(#frame)">
 <rect width="{W}" height="{H}" fill="{BG}"/>
 {stars(W, 40, horizon - 5)}
-<rect y="{horizon}" width="{W}" height="{H - horizon}" fill="#0a0620"/>
+<rect y="{horizon}" width="{W}" height="{H - horizon}" fill="#0a0805"/>
 {synth_floor(W, horizon, H, 500, lines=10)}
 <line x1="0" x2="{W}" y1="{horizon}" y2="{horizon}" stroke="{PINK}" stroke-width="2" filter="url(#glow)"/>
 {extruded_text("ALL ACCORDING TO PLAN", 500, 54, 32, depth=6, anchor="middle", spacing=4)}
@@ -551,7 +551,7 @@ def contrib_city():
     cx30, s30 = a * 0.866, a * 0.5
     span = (len(weeks) + 7) * cx30                 # isometric footprint width
     ox, oy = (W - span) / 2, 150                   # centred horizontally
-    palette = ["#1e293b", "#0e7490", CYAN, "#a78bfa", PINK]
+    palette = ["#2e2820", "#6e4f27", CYAN, "#eadfc9", PINK]
     level = lambda c: 0 if c == 0 else min(4, 1 + int(4 * c / (peak + 1)))
     cells = sorted(((wi, d, c) for wi, w in enumerate(weeks) for d, c in w), key=lambda t: (t[0] + t[1], t[0]))
     bars = []
@@ -582,7 +582,7 @@ def contrib_city():
 {stars(W, 40, 110)}
 {"".join(bars)}
 {stat(40, "start", 58, total, "CONTRIBUTIONS · LAST 12 MONTHS", CYAN)}
-{stat(W / 2, "middle", 58, active, "ACTIVE DAYS", "#a78bfa")}
+{stat(W / 2, "middle", 58, active, "ACTIVE DAYS", "#eadfc9")}
 {stat(W - 40, "end", 58, best, "BEST DAY", PINK)}
 </svg>"""
     write("contrib-city.svg", svg)

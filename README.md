@@ -1,12 +1,12 @@
-﻿<div align="center">
+<div align="center">
 
 <img src="assets/hero.svg" width="100%" alt="Yassir Hamri - Data and AI engineering" />
 
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=3500&pause=1000&color=22D3EE&center=true&vCenter=true&width=900&lines=Since+when+were+you+under+the+impression+this+was+a+normal+README%3F;Admiration+is+the+furthest+thing+from+understanding.+Read+my+code.;Kudake%2C+Kyoka+Suigetsu.+(the+globe+is+real+though%2C+pure+SVG+math);Everything+is+going+according+to+plan." alt="Since when were you under the impression this was a normal README?" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=3500&pause=1000&color=F5CD8A&center=true&vCenter=true&width=900&lines=Since+when+were+you+under+the+impression+this+was+a+normal+README%3F;Admiration+is+the+furthest+thing+from+understanding.+Read+my+code.;Kudake%2C+Kyoka+Suigetsu.+(the+globe+is+real+though%2C+pure+SVG+math);Everything+is+going+according+to+plan." alt="Since when were you under the impression this was a normal README?" /></a>
 
-<a href="https://yassir-hamri-portfolio.vercel.app"><img src="https://img.shields.io/badge/Portfolio-visit-22d3ee?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0b1023" alt="Portfolio" /></a>
-<a href="https://linkedin.com/in/yassir-hamri"><img src="https://img.shields.io/badge/LinkedIn-connect-8b5cf6?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0b1023" alt="LinkedIn" /></a>
-<a href="https://github.com/yassirHam"><img src="https://img.shields.io/badge/Based_in-Morocco-f472b6?style=for-the-badge&logo=googlemaps&logoColor=white&labelColor=0b1023" alt="Based in Morocco" /></a>
+<a href="https://yassir-hamri-portfolio.vercel.app"><img src="https://img.shields.io/badge/Portfolio-visit-f5cd8a?style=for-the-badge&logo=vercel&logoColor=white&labelColor=14110c" alt="Portfolio" /></a>
+<a href="https://linkedin.com/in/yassir-hamri"><img src="https://img.shields.io/badge/LinkedIn-connect-c99a5b?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=14110c" alt="LinkedIn" /></a>
+<a href="https://github.com/yassirHam"><img src="https://img.shields.io/badge/Based_in-Morocco-70d69e?style=for-the-badge&logo=googlemaps&logoColor=white&labelColor=14110c" alt="Based in Morocco" /></a>
 
 <br/><br/>
 
