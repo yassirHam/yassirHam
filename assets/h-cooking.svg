@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 90" width="1000" height="90" role="img" aria-label="CURRENTLY COOKING">
+<defs>
+<filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+  <feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="bigGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+
+<linearGradient id="gTxt" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#22d3ee"/>
+  <stop offset=".5" stop-color="#a78bfa"/>
+  <stop offset="1" stop-color="#f472b6"/>
+  <animate attributeName="x1" values="0;-1;0" dur="8s" repeatCount="indefinite"/>
+  <animate attributeName="x2" values="1;2;1" dur="8s" repeatCount="indefinite"/>
+</linearGradient>
+<linearGradient id="bar" x1="0" x2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#f472b6" stop-opacity="0"/></linearGradient>
+</defs>
+<text x="8" y="60" font-size="40">ðŸ”¥</text>
+<text x="70" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="4" text-anchor="start" y="60" dx="6" dy="6" fill="#3b1d6e">CURRENTLY COOKING</text>
+<text x="70" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="4" text-anchor="start" y="60" dx="5" dy="5" fill="#3b1d6e">CURRENTLY COOKING</text>
+<text x="70" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="4" text-anchor="start" y="60" dx="4" dy="4" fill="#3b1d6e">CURRENTLY COOKING</text>
+<text x="70" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="4" text-anchor="start" y="60" dx="3" dy="3" fill="#3b1d6e">CURRENTLY COOKING</text>
+<text x="70" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="4" text-anchor="start" y="60" dx="2" dy="2" fill="#3b1d6e">CURRENTLY COOKING</text>
+<text x="70" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="4" text-anchor="start" y="60" dx="1" dy="1" fill="#1e0b3d">CURRENTLY COOKING</text>
+<text x="70" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="4" text-anchor="start" y="60" fill="url(#gTxt)" stroke="#ffffff" stroke-opacity=".25" stroke-width="1">CURRENTLY COOKING</text>
+<rect x="72" y="74" width="600" height="3" rx="1.5" fill="url(#bar)">
+  <animate attributeName="width" values="120;600;120" dur="6s" repeatCount="indefinite"/>
+</rect>
+</svg>
